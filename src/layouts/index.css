@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Open+Sans');
+
 html {
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   height: 100%;
@@ -649,4 +651,20 @@ pre tt:after {
   margin-bottom: 5em;
   margin-right: 2em;
   font-family: 'Gloria Hallelujah', cursive;
+  letter-spacing: 5px;
+}
+
+@media only screen and (max-width: 480px) {
+  .landing-page {
+    height: 100%;
+    display: flex;
+    flex-direction: columns;
+    align-items: center;
+    justify-content: center;
+  }
+  .coming {
+    margin: 1em;
+    letter-spacing: 5px;
+    text-align: center;
+  }
 }
