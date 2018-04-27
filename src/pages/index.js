@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 
 const IndexPage = () => (
   <div className='landing-page'>
-    <h1 className='coming'>c'est pour bientôt ...</h1>
+    <a href="https://www.youtube.com/embed/nN_GpuzgG5Y" className="coming">c'est pour bientôt ...</a>
     {
       // <Link to="/page-2/">Go to page 2</Link>
     }

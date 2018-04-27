@@ -652,6 +652,9 @@ pre tt:after {
   margin-right: 2em;
   font-family: 'Gloria Hallelujah', cursive;
   letter-spacing: 5px;
+  text-decoration: none;
+  font-size: 2.5em;
+  cursor: default;
 }
 
 @media only screen and (max-width: 480px) {
