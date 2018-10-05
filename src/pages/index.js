@@ -11,12 +11,27 @@ import title from './title.png'
 // PrÈ-Commandes ‡ partir du 17 Octobre 2018
 
 const IndexPage = () => (
-  <div className="landing-page">
+  <div
+    className="landing-page"
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+    }}
+  >
     <h1 style={{ color: 'white' }}>Plastique Biche EP</h1>
     <h2 style={{ color: 'white' }}>
       Pré-Commandes à partir du 17 Octobre 2018
     </h2>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/4zFPg6aygd4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/4zFPg6aygd4"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+    />
     <img
       src={biche}
       style={{
