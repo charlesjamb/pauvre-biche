@@ -20,10 +20,16 @@ const Layout = ({ children, data }) => (
     <Helmet
       title={data.site.siteMetadata.title}
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        {
+          name: 'description',
+          content:
+            'Pauvre Biche is a rap duo from Paris. Their debut EP is coming out the 17th of October 2018.',
+        },
+        { name: 'keywords', content: 'Pauvre, Biche, rap, EP, pauve-biche' },
       ]}
-    />
+    >
+      <html lang="fr" />
+    </Helmet>
     {children()}
   </PageContainer>
 );

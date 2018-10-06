@@ -54,12 +54,13 @@ const IndexPage = () => (
     <MainTitle>Plastique Biche EP</MainTitle>
     <SubTitle>Pré-Commandes à partir du 17 Octobre 2018</SubTitle>
     <Video
+      title="pauvre-biche-deso-clip"
       src="https://www.youtube.com/embed/4zFPg6aygd4"
       frameBorder="0"
       allowFullScreen
     />
-    <Biche src={biche} alt="biche" width="70%" heigth="70%" />
-    <PauvreBiche src={title} alt="title" width="40%" heigth="40%" />
+    <Biche src={biche} alt="pauvre-biche-biche" width="70%" heigth="70%" />
+    <PauvreBiche src={title} alt="pauvre-biche-title" width="40%" heigth="40%" />
     {
       // <Link to="/page-2/">Go to page 2</Link>
     }

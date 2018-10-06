@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 @font-face {
   font-family: 'Futura-Bold';
+  font-display: swap;
   src: url('./font/Futura-Bold.woff2') format('woff2'),
     url('./font/Futura-Bold.woff') format('woff'),
     url('./font/Futura-Bold.ttf') format('truetype');
