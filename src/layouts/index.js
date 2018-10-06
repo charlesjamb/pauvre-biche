@@ -1,12 +1,22 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import styled from 'styled-components';
 
-import Header from '../components/header'
-import './index.css'
+import './index.css';
+import background from './img/background.svg';
+import silhouetteArbres from './img/silhouetteArbres.svg';
+
+const PageContainer = styled.div`
+  min-height: 100vh;
+  background-image: url(${silhouetteArbres}), url(${background});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+`;
 
 const Layout = ({ children, data }) => (
-  <div style={{'height': '100%'}}>
+  <PageContainer>
     <Helmet
       title={data.site.siteMetadata.title}
       meta={[
@@ -14,25 +24,15 @@ const Layout = ({ children, data }) => (
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    {
-      // <Header siteTitle={data.site.siteMetadata.title} />
-    }
-    <div
-      style={{
-        'width': '100%',
-        'height': '100%',
-      }}
-    >
-      {children()}
-    </div>
-  </div>
-)
+    {children()}
+  </PageContainer>
+);
 
 Layout.propTypes = {
   children: PropTypes.func,
-}
+};
 
-export default Layout
+export default Layout;
 
 export const query = graphql`
   query SiteTitleQuery {
@@ -42,4 +42,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

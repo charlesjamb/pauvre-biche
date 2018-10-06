@@ -1,65 +1,69 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import biche from './biche.svg'
-import title from './title.png'
+import React from 'react';
+import Link from 'gatsby-link';
+import biche from './img/biche.svg';
+import title from './img/title.png';
+import styled from 'styled-components';
 
-// VidÈo Youtube ‡ Embed
-// https://www.youtube.com/watch?v=4zFPg6aygd4
+const LandingPage = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+`;
 
-// Texte :
-// Plastique Biche EP
-// PrÈ-Commandes ‡ partir du 17 Octobre 2018
+const MainTitle = styled.h1`
+  color: white;
+  font-weight: bold;
+  text-align: center;
+`;
+
+const SubTitle = styled.h2`
+  color: white;
+  font-weight: bold;
+  text-align: center;
+`;
+
+const Video = styled.iframe`
+  z-index: 99;
+  width: 560px;
+  height: 315px;
+
+  @media (min-width: 320px) and (max-width: 500px) {
+    width: 100%;
+  }
+`;
+
+const Biche = styled.img`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+`;
+
+const PauvreBiche = styled.img`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+`;
 
 const IndexPage = () => (
-  <div
-    className="landing-page"
-    style={{
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'flex-start',
-      alignItems: 'center',
-    }}
-  >
-    <h1 style={{ color: 'white' }}>Plastique Biche EP</h1>
-    <h2 style={{ color: 'white' }}>
-      Pré-Commandes à partir du 17 Octobre 2018
-    </h2>
-    <iframe
-      width="560"
-      height="315"
+  <LandingPage>
+    <MainTitle>Plastique Biche EP</MainTitle>
+    <SubTitle>Pré-Commandes à partir du 17 Octobre 2018</SubTitle>
+    <Video
       src="https://www.youtube.com/embed/4zFPg6aygd4"
-      frameborder="0"
-      allow="autoplay; encrypted-media"
-      allowfullscreen
+      frameBorder="0"
+      allowFullScreen
     />
-    <img
-      src={biche}
-      style={{
-        position: 'absolute',
-        bottom: '0',
-        right: '0',
-        zIndex: '-1',
-      }}
-      alt="biche"
-      width="75%"
-      heigth="75%"
-    />
-    <img
-      src={title}
-      style={{
-        position: 'absolute',
-        bottom: '0',
-        left: '0',
-        zIndex: '-1',
-      }}
-      alt="title"
-      width="50%"
-      heigth="50%"
-    />
+    <Biche src={biche} alt="biche" width="70%" heigth="70%" />
+    <PauvreBiche src={title} alt="title" width="40%" heigth="40%" />
     {
       // <Link to="/page-2/">Go to page 2</Link>
     }
-  </div>
-)
+  </LandingPage>
+);
 
-export default IndexPage
+export default IndexPage;

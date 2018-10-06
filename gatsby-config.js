@@ -4,10 +4,11 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-favicon`,
       options: {
-        logo: "./src/favicon.png",
+        logo: './src/favicon.png',
         injectHTML: true,
         icons: {
           android: true,
@@ -18,9 +19,9 @@ module.exports = {
           firefox: true,
           twitter: false,
           yandex: false,
-          windows: false
-        }
-      }
+          windows: false,
+        },
+      },
     },
   ],
 }
