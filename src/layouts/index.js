@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import styled from 'styled-components';
 
 import './index.css';
-import background from './img/background.svg';
+import background from './img/background.jpg';
 import silhouetteArbres from './img/silhouetteArbres.svg';
 
 const PageContainer = styled.div`
