@@ -17,15 +17,23 @@ const MainTitle = styled.h1`
   color: white;
   font-weight: bold;
   text-align: center;
+  @media (min-width: 320px) and (max-width: 500px) {
+    font-size: 2em;
+  }
 `;
 
 const SubTitle = styled.h2`
   color: white;
   font-weight: bold;
   text-align: center;
+  @media (min-width: 320px) and (max-width: 500px) {
+    font-size: 1em;
+    margin-top: 0;
+  }
 `;
 
 const Video = styled.iframe`
+  position: relative;
   z-index: 99;
   width: 560px;
   height: 315px;
@@ -60,7 +68,12 @@ const IndexPage = () => (
       allowFullScreen
     />
     <Biche src={biche} alt="pauvre-biche-biche" width="70%" heigth="70%" />
-    <PauvreBiche src={title} alt="pauvre-biche-title" width="40%" heigth="40%" />
+    <PauvreBiche
+      src={title}
+      alt="pauvre-biche-title"
+      width="40%"
+      heigth="40%"
+    />
     {
       // <Link to="/page-2/">Go to page 2</Link>
     }
