@@ -9,14 +9,18 @@ const LandingPage = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 100%;
+  height: 100vh;
   width: 100%;
+  @media (min-width: 320px) and (max-width: 500px) {
+    justify-content: space-between;
+  }
 `;
 
 const MainTitle = styled.h1`
   color: white;
   font-weight: bold;
   text-align: center;
+  margin-bottom: 0;
   @media (min-width: 320px) and (max-width: 500px) {
     font-size: 2em;
   }
@@ -26,7 +30,11 @@ const SubTitle = styled.h2`
   color: white;
   font-weight: bold;
   text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   @media (min-width: 320px) and (max-width: 500px) {
+    flex-direction: column;
     font-size: 1em;
     margin-top: 0;
   }
@@ -48,6 +56,9 @@ const Biche = styled.img`
   bottom: 0;
   right: 0;
   margin: 0;
+  @media (min-width: 320px) and (max-width: 500px) {
+    display: none;
+  }
 `;
 
 const PauvreBiche = styled.img`
@@ -55,12 +66,51 @@ const PauvreBiche = styled.img`
   bottom: 0;
   left: 0;
   margin: 0;
+  @media (min-width: 320px) and (max-width: 500px) {
+    display: none;
+  }
+`;
+
+const CommandLink = styled.a`
+  margin: 10px;
+  background-color: red;
+  box-shadow: 0 5px 0 darkred;
+  color: white;
+  padding: 1em 1.5em;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  z-index: 999999;
+  &:hover {
+    background-color: #ce0606;
+    cursor: pointer;
+  }
+  &:active {
+    box-shadow: none;
+    top: 5px;
+  }
 `;
 
 const IndexPage = () => (
   <LandingPage>
     <MainTitle>Plastique Biche EP</MainTitle>
-    <SubTitle>Pré-Commandes à partir du 17 Octobre 2018</SubTitle>
+    <SubTitle>
+      <CommandLink href="https://pauvrebiche.bandcamp.com/" alt="bandcamp">
+        Commandes CD-ROM édition limitée
+      </CommandLink>
+      <CommandLink
+        href="https://distrokid.com/hyperfollow/pauvrebiche/eM3E"
+        alt="spotify"
+      >
+        Pre-save sur Spotify
+      </CommandLink>
+      <CommandLink
+        href="https://itunes.apple.com/fr/album/plastique-biche-ep/1437244691"
+        alt="itunes"
+      >
+        Précommandes sur iTunes
+      </CommandLink>
+    </SubTitle>
     <Video
       title="pauvre-biche-deso-clip"
       src="https://www.youtube.com/embed/4zFPg6aygd4"
