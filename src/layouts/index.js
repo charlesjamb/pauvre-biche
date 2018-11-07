@@ -23,9 +23,13 @@ const Layout = ({ children, data }) => (
         {
           name: 'description',
           content:
-            'Pauvre Biche is a rap duo from Paris. Their debut EP is coming out the 17th of October 2018.',
+            'Pauvre Biche est un groupe de hip-hop / electronica composé de Florent Blin et Jérémy Gleize.',
         },
-        { name: 'keywords', content: 'Pauvre, Biche, rap, EP, pauve-biche' },
+        {
+          name: 'keywords',
+          content:
+            'Pauvre Biche, Pauvre, Biche, rap, EP, pauve-biche, hip-hop, electronica',
+        },
       ]}
     >
       <html lang="fr" />

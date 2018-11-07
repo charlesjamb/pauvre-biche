@@ -67,7 +67,7 @@ const Available = styled.p`
   color: black;
 `;
 
-const SubTitle = styled.div`
+const LinksContainer = styled.div`
   background-color: #e5ffff;
   padding: 1em;
   margin: 1em;
@@ -96,18 +96,14 @@ const Video = styled.iframe`
   }
 `;
 
-const Biche = styled.img`
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin: 0;
-  @media (min-width: 320px) and (max-width: 500px) {
-    display: none;
-  }
-`;
-
-// const PauvreBiche = styled.img`
-
+// const Biche = styled.img`
+//   position: absolute;
+//   bottom: 0;
+//   right: 0;
+//   margin: 0;
+//   @media (min-width: 320px) and (max-width: 500px) {
+//     display: none;
+//   }
 // `;
 
 const CommandLink = styled.a`
@@ -137,34 +133,6 @@ const Icon = styled.img`
   margin: 2vh;
 `;
 
-/*
-Commander le CD-ROM édition limitée
-  • https://pauvrebiche.bandcamp.com/
-Spotify
-  • https://open.spotify.com/artist/3ti8XH0LZvkDg2oDWg16w5?si=71J-L2sYTKajNqNFON56Hw
- iTunes
- https://itunes.apple.com/us/album/plastique-biche-ep/1437244691?app=itunes&fbclid=IwAR3fJXsOUDuNpK8wIz5orr3IBQlqTPp7EJqLnzq8xxFSz9JbixsepKNVrdA&ign-mpt=uo%3D4
-Deezer
-  • https://www.deezer.com/fr/album/74002742
-AppleMusic
-  • https://itunes.apple.com/us/album/plastique-biche-ep/1437244691?app=itunes&fbclid=IwAR3fJXsOUDuNpK8wIz5orr3IBQlqTPp7EJqLnzq8xxFSz9JbixsepKNVrdA&ign-mpt=uo%3D4
-Google Play 
-  • https://play.google.com/store/music/album/Pauvre_Biche_Plastique_Biche?id=Bwgw5335474ioohayuctazxwrxy
-Amazon
-  • https://www.amazon.fr/Plastique-Biche-Explicit-Pauvre/dp/B07HMX98GV/ref=sr_1_1?ie=UTF8&qid=1540811090&sr=8-1&keywords=pauvre+biche
-Tidal
-  • https://tidal.com/browse/album/95651729
-Napster
-  • https://us.napster.com/artist/pauvre-biche/album/plastique-biche
-
-    <PauvreBiche
-      src={title}
-      alt="pauvre-biche-title"
-      width="50%"
-      heigth="50%"
-    />
-*/
-
 const IndexPage = () => (
   <LandingPage>
     <MainTitle>
@@ -172,35 +140,41 @@ const IndexPage = () => (
     </MainTitle>
     <Present>présente le</Present>
     <SecondaryTitle>Plastique Biche EP</SecondaryTitle>
-    <CommandLink href="https://pauvrebiche.bandcamp.com/" alt="bandcamp">
+    <CommandLink
+      href="https://pauvrebiche.bandcamp.com/"
+      alt="pauvre-biche-bandcamp"
+    >
       Commander le CD-ROM édition limitée
     </CommandLink>
-    <SubTitle>
+    <LinksContainer>
       <Available>Disponible sur</Available>
       <a
         href="https://open.spotify.com/artist/3ti8XH0LZvkDg2oDWg16w5?si=71J-L2sYTKajNqNFON56Hw"
-        alt="spotify"
+        alt="pauvre-biche-spotify"
       >
         <Icon src={spotify} alt="spotify-logo" />
       </a>
-      <a href="https://www.deezer.com/fr/album/74002742" alt="deezer">
+      <a
+        href="https://www.deezer.com/fr/album/74002742"
+        alt="pauvre-biche-deezer"
+      >
         <Icon src={deezer} alt="deezer-logo" />
       </a>
       <a
         href="https://itunes.apple.com/us/album/plastique-biche-ep/1437244691?app=itunes&fbclid=IwAR3fJXsOUDuNpK8wIz5orr3IBQlqTPp7EJqLnzq8xxFSz9JbixsepKNVrdA&ign-mpt=uo%3D4"
-        alt="apple-music"
+        alt="pauvre-biche-apple-music"
       >
         <Icon src={appleMusic} alt="apple-music" />
       </a>
       <a
         href="https://play.google.com/store/music/album/Pauvre_Biche_Plastique_Biche?id=Bwgw5335474ioohayuctazxwrxy"
-        alt="google-play"
+        alt="pauvre-biche-google-play"
       >
         <Icon src={googlePlay} alt="google-play-logo" />
       </a>
       <a
         href="https://www.amazon.fr/Plastique-Biche-Explicit-Pauvre/dp/B07HMX98GV/ref=sr_1_1?ie=UTF8&qid=1540811090&sr=8-1&keywords=pauvre+biche"
-        alt="amazon"
+        alt="pauvre-biche-amazon"
       >
         <Icon src={amazon} alt="amazon-logo" />
       </a>
@@ -209,11 +183,11 @@ const IndexPage = () => (
       </a>
       <a
         href="https://us.napster.com/artist/pauvre-biche/album/plastique-biche"
-        alt="napster"
+        alt="pauvre-biche-napster"
       >
         <Icon src={napster} alt="napster-logo" />
       </a>
-    </SubTitle>
+    </LinksContainer>
     <Video
       title="pauvre-biche-deso-clip"
       src="https://www.youtube.com/embed/4zFPg6aygd4"
