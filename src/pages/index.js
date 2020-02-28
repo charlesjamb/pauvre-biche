@@ -1,90 +1,36 @@
-import React from 'react';
-import styled from 'styled-components';
-// import biche from './img/biche.svg';
-// import title from './img/title.png';
-import spotify from './img/spotify.svg';
-import appleMusic from './img/apple-music.svg';
-import napster from './img/napster.png';
-// import soundcloud from './img/soundcloud.svg';
-import amazon from './img/amazon.svg';
-import tidal from './img/tidal.svg';
-import googlePlay from './img/google-play.svg';
-import deezer from './img/deezer.svg';
+import React from "react"
+import Img from "gatsby-image"
+import styled from "styled-components"
+import { Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
-const LandingPage = styled.div`
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import Links from "../components/Links"
+import videoPlaceholder from "../images/video-placeholder.jpg"
+import background from "../videos/background.mp4"
+
+const Container = styled.div`
+  position: relative;
+  max-width: 1290px;
+  padding: 60px 30px;
+  margin: 0 auto;
+  min-height: 100vh;
+  /* width: 100%; */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  min-height: 100vh;
-  width: 100%;
-  @media (min-width: 320px) and (max-width: 500px) {
-    justify-content: space-between;
-  }
-`;
+`
 
-const MainTitle = styled.h1`
-  line-height: 0.9;
-  color: #e5ffff;
-  font-weight: bold;
-  text-align: center;
-  font-style: italic;
-  z-index: 2;
-  margin: 20px 0;
-  font-size: 4em;
-  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  @media (min-width: 320px) and (max-width: 500px) {
-    font-size: 2em;
-  }
-`;
-
-const SecondaryTitle = styled(MainTitle)`
-  font-style: normal;
-  z-index: 2;
-  font-size: 3em;
-  @media (min-width: 320px) and (max-width: 500px) {
-    font-size: 1.5em;
-  }
-`;
-
-const Present = styled.p`
-  margin: 0;
-  color: #e5ffff;
-  font-family: 'Cedarville Cursive', cursive;
-  z-index: 2;
-  font-size: 1em;
-  @media (min-width: 320px) and (max-width: 500px) {
-    font-size: 1em;
-  }
-`;
-
-const Available = styled.p`
-  width: 100%;
-  text-align: center;
-  margin: 0.5em;
-  z-index: 2;
-  font-size: 1em;
-  color: black;
-`;
-
-const LinksContainer = styled.div`
-  background-color: #e5ffff;
-  padding: 1em;
-  margin: 1em;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  color: white;
-  z-index: 2;
-  font-weight: bold;
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: center;
-  @media (min-width: 320px) and (max-width: 500px) {
-    font-size: 1em;
-    justify-content: center;
-  }
-`;
+const BackgroundVideo = styled.video`
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+`
 
 const Video = styled.iframe`
   position: relative;
@@ -94,110 +40,143 @@ const Video = styled.iframe`
   @media (min-width: 320px) and (max-width: 500px) {
     width: 100%;
   }
-`;
+`
 
-// const Biche = styled.img`
-//   position: absolute;
-//   bottom: 0;
-//   right: 0;
-//   margin: 0;
-//   @media (min-width: 320px) and (max-width: 500px) {
-//     display: none;
-//   }
-// `;
+const PauvreBicheContainer = styled.div`
+  width: 50%;
+`
 
-const CommandLink = styled.a`
-  margin: 10px;
-  background-color: red;
-  box-shadow: 0 5px 0 darkred;
-  color: white;
-  padding: 1em 1.5em;
-  position: relative;
-  text-decoration: none;
+const Title = styled.h1`
+  line-height: 1.5em;
+  color: #e5ffff;
+  font-size: 8rem;
+  font-weight: bold;
+  margin-bottom: 60px;
   text-align: center;
-  z-index: 2;
-  text-transform: uppercase;
-  &:hover {
-    background-color: #ce0606;
+
+  @media (min-width: 320px) and (max-width: 500px) {
+    font-size: 4rem;
+  }
+`
+
+const CoverImage = styled.div`
+  width: 30%;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+
+  @media (min-width: 320px) and (max-width: 500px) {
+    width: 65%;
+  }
+`
+
+const Nav = styled.nav`
+  padding: 30px 30px 0 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  box-sizing: border-box;
+
+  a {
+    color: #e5ffff;
     cursor: pointer;
-  }
-  &:active {
-    box-shadow: none;
-    top: 5px;
-  }
-`;
+    text-decoration: none;
+    line-height: 1.5rem;
+    font-size: 1rem;
+    transition: transform 150ms ease;
 
-const Icon = styled.img`
-  height: 10vh;
-  width: 10vh;
-  margin: 2vh;
-`;
-
-const IndexPage = () => (
-  <LandingPage>
-    <MainTitle>
-      PAUVRE<br />BICHE
-    </MainTitle>
-    <Present>présente le</Present>
-    <SecondaryTitle>Plastique Biche EP</SecondaryTitle>
-    <CommandLink
-      href="https://pauvrebiche.bandcamp.com/"
-      alt="pauvre-biche-bandcamp"
-    >
-      Commander le CD-ROM édition limitée
-    </CommandLink>
-    <LinksContainer>
-      <Available>Disponible sur</Available>
-      <a
-        href="https://open.spotify.com/artist/3ti8XH0LZvkDg2oDWg16w5?si=71J-L2sYTKajNqNFON56Hw"
-        alt="pauvre-biche-spotify"
-      >
-        <Icon src={spotify} alt="spotify-logo" />
-      </a>
-      <a
-        href="https://www.deezer.com/fr/album/74002742"
-        alt="pauvre-biche-deezer"
-      >
-        <Icon src={deezer} alt="deezer-logo" />
-      </a>
-      <a
-        href="https://itunes.apple.com/us/album/plastique-biche-ep/1437244691?app=itunes&fbclid=IwAR3fJXsOUDuNpK8wIz5orr3IBQlqTPp7EJqLnzq8xxFSz9JbixsepKNVrdA&ign-mpt=uo%3D4"
-        alt="pauvre-biche-apple-music"
-      >
-        <Icon src={appleMusic} alt="apple-music" />
-      </a>
-      <a
-        href="https://play.google.com/store/music/album/Pauvre_Biche_Plastique_Biche?id=Bwgw5335474ioohayuctazxwrxy"
-        alt="pauvre-biche-google-play"
-      >
-        <Icon src={googlePlay} alt="google-play-logo" />
-      </a>
-      <a
-        href="https://www.amazon.fr/Plastique-Biche-Explicit-Pauvre/dp/B07HMX98GV/ref=sr_1_1?ie=UTF8&qid=1540811090&sr=8-1&keywords=pauvre+biche"
-        alt="pauvre-biche-amazon"
-      >
-        <Icon src={amazon} alt="amazon-logo" />
-      </a>
-      <a href="https://tidal.com/browse/album/95651729" alt="tidal">
-        <Icon src={tidal} alt="tidal-logo" />
-      </a>
-      <a
-        href="https://us.napster.com/artist/pauvre-biche/album/plastique-biche"
-        alt="pauvre-biche-napster"
-      >
-        <Icon src={napster} alt="napster-logo" />
-      </a>
-    </LinksContainer>
-    <Video
-      title="pauvre-biche-deso-clip"
-      src="https://www.youtube.com/embed/4zFPg6aygd4"
-      frameBorder="0"
-      allowFullScreen
-    />
-    {
-      // <Biche src={biche} alt="pauvre-biche-biche" width="40%" />
+    :hover {
+      transform: scale(1.1);
+      text-decoration: underline;
     }
-  </LandingPage>
-);
+  }
+`
 
-export default IndexPage;
+const Footer = styled.footer`
+  padding-top: 120px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+
+  @media (min-width: 320px) and (max-width: 500px) {
+    flex-direction: column;
+  }
+
+  a {
+    color: #e5ffff;
+    cursor: pointer;
+    text-decoration: none;
+    line-height: 1.5rem;
+    margin: 2rem;
+    font-size: 1rem;
+    transition: transform 150ms ease;
+
+    :hover {
+      transform: scale(1.1);
+    }
+  }
+`
+
+const Home = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      title: file(relativePath: { eq: "title.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      cover: file(relativePath: { eq: "biche-boys-cover.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+  console.log({ data, videoPlaceholder })
+  return (
+    <Layout>
+      <SEO title="Biche Boys" />
+      <BackgroundVideo autoPlay muted loop poster={videoPlaceholder}>
+        <source src={background} type="video/mp4" />
+      </BackgroundVideo>
+      <Nav>
+        <Link to="/plastique-biche">Plastique Biche</Link>
+      </Nav>
+      <Container>
+        <PauvreBicheContainer>
+          <Img alt="Pauvre Biche" fluid={data.title.childImageSharp.fluid} />
+        </PauvreBicheContainer>
+        <Title>BICHE BOYS EP</Title>
+        <CoverImage>
+          <Img
+            alt="Biche boys EP cover art"
+            fluid={data.cover.childImageSharp.fluid}
+          />
+        </CoverImage>
+        <Links />
+        <Video
+          title="pauvre-biche-deso-clip"
+          src="https://www.youtube.com/embed/jOPuDfCEauQ"
+          frameBorder="0"
+          allowFullScreen
+        />
+        <Footer>
+          <a href="https://www.facebook.com/pauvrebiche/">Facebook</a>
+          <a href="https://www.instagram.com/pauvrebiche/">Instagram</a>
+          <a href="https://www.youtube.com/channel/UCFwVjtYoo5wO_HmiC42RG0A">
+            Youtube
+          </a>
+        </Footer>
+      </Container>
+    </Layout>
+  )
+}
+
+export default Home
