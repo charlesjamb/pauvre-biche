@@ -8,7 +8,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import background from "../images/background.jpg"
 import silhouetteArbres from "../images/silhouetteArbres.png"
-import Links from "../components/links"
+import MusicLinks from "../components/musicLinks"
 
 const LandingPage = styled.div`
   display: flex;
@@ -176,7 +176,7 @@ const PlastiqueBichePage = () => {
         >
           Acheter le CD-ROM édition limitée
         </CommandLink>
-        <Links />
+        <MusicLinks />
         <Video
           title="pauvre-biche-deso-clip"
           src="https://www.youtube.com/embed/4zFPg6aygd4"

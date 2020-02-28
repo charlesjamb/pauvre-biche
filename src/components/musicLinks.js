@@ -43,7 +43,7 @@ const Icon = styled.img`
   margin: 2vh;
 `
 
-const Links = () => (
+const MusicLinks = () => (
   <LinksContainer>
     <Available>Disponible sur</Available>
     <a
@@ -88,4 +88,4 @@ const Links = () => (
   </LinksContainer>
 )
 
-export default Links
+export default MusicLinks

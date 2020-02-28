@@ -6,7 +6,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Links from "../components/Links"
+import MusicLinks from "../components/musicLinks"
 import videoPlaceholder from "../images/video-placeholder.jpg"
 import background from "../videos/background.mp4"
 
@@ -160,7 +160,7 @@ const Home = () => {
             fluid={data.cover.childImageSharp.fluid}
           />
         </CoverImage>
-        <Links />
+        <MusicLinks />
         <Video
           title="pauvre-biche-deso-clip"
           src="https://www.youtube.com/embed/jOPuDfCEauQ"
