@@ -26,6 +26,17 @@ const LandingPage = styled.div`
   }
 `
 
+const Container = styled.div`
+  position: relative;
+  max-width: 1290px;
+  padding: 60px 30px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
 const MainTitle = styled.h1`
   line-height: 0.9;
   color: #e5ffff;
@@ -143,7 +154,11 @@ const Footer = styled.footer`
 `
 
 const PauvreBicheContainer = styled.div`
-  width: 50%;
+  width: 30%;
+
+  @media (min-width: 320px) and (max-width: 500px) {
+    width: 50%;
+  }
 `
 
 const PlastiqueBichePage = () => {
@@ -156,41 +171,55 @@ const PlastiqueBichePage = () => {
           }
         }
       }
+      bicheBoys: file(relativePath: { eq: "biche-boys-cover.jpg" }) {
+        childImageSharp {
+          fixed(width: 80) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
     }
   `)
+
   return (
     <Layout>
       <SEO title="Plastique Biche" />
       <LandingPage>
         <Nav>
-          <Link to="/">Biche Boys</Link>
+          <Link to="/">
+            <Img
+              fixed={data.bicheBoys.childImageSharp.fixed}
+              alt="link to biche boys ep page"
+            />
+          </Link>
         </Nav>
-        <PauvreBicheContainer>
-          <Img alt="Pauvre Biche" fluid={data.title.childImageSharp.fluid} />
-        </PauvreBicheContainer>
-        <Present>présente le</Present>
-        <SecondaryTitle>Plastique Biche EP</SecondaryTitle>
-        <CommandLink
-          href="https://pauvrebiche.bandcamp.com/"
-          alt="pauvre-biche-bandcamp"
-        >
-          Acheter le CD-ROM édition limitée
-        </CommandLink>
-        <MusicLinks />
-        <Video
-          title="pauvre-biche-deso-clip"
-          src="https://www.youtube.com/embed/4zFPg6aygd4"
-          frameBorder="0"
-          allowFullScreen
-        />
-
-        <Footer>
-          <a href="https://www.facebook.com/pauvrebiche/">Facebook</a>
-          <a href="https://www.instagram.com/pauvrebiche/">Instagram</a>
-          <a href="https://www.youtube.com/channel/UCFwVjtYoo5wO_HmiC42RG0A">
-            Youtube
-          </a>
-        </Footer>
+        <Container>
+          <PauvreBicheContainer>
+            <Img alt="Pauvre Biche" fluid={data.title.childImageSharp.fluid} />
+          </PauvreBicheContainer>
+          <Present>présente le</Present>
+          <SecondaryTitle>Plastique Biche EP</SecondaryTitle>
+          <CommandLink
+            href="https://pauvrebiche.bandcamp.com/"
+            alt="pauvre-biche-bandcamp"
+          >
+            Acheter le CD-ROM édition limitée
+          </CommandLink>
+          <MusicLinks album="plastiqueBiche" />
+          <Video
+            title="pauvre-biche-deso-clip"
+            src="https://www.youtube.com/embed/4zFPg6aygd4"
+            frameBorder="0"
+            allowFullScreen
+          />
+          <Footer>
+            <a href="https://www.facebook.com/pauvrebiche/">Facebook</a>
+            <a href="https://www.instagram.com/pauvrebiche/">Instagram</a>
+            <a href="https://www.youtube.com/channel/UCFwVjtYoo5wO_HmiC42RG0A">
+              Youtube
+            </a>
+          </Footer>
+        </Container>
       </LandingPage>
     </Layout>
   )

@@ -16,7 +16,6 @@ const Container = styled.div`
   padding: 60px 30px;
   margin: 0 auto;
   min-height: 100vh;
-  /* width: 100%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,10 +39,6 @@ const Video = styled.iframe`
   @media (min-width: 320px) and (max-width: 500px) {
     width: 100%;
   }
-`
-
-const PauvreBicheContainer = styled.div`
-  width: 50%;
 `
 
 const Title = styled.h1`
@@ -123,13 +118,6 @@ const Footer = styled.footer`
 const Home = () => {
   const data = useStaticQuery(graphql`
     query {
-      title: file(relativePath: { eq: "title.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 600) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
       cover: file(relativePath: { eq: "biche-boys-cover.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
@@ -137,9 +125,16 @@ const Home = () => {
           }
         }
       }
+      plastiqueCover: file(relativePath: { eq: "plastique-biche-cover.jpg" }) {
+        childImageSharp {
+          fixed(width: 80) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
     }
   `)
-  console.log({ data, videoPlaceholder })
+
   return (
     <Layout>
       <SEO title="Biche Boys" />
@@ -147,12 +142,14 @@ const Home = () => {
         <source src={background} type="video/mp4" />
       </BackgroundVideo>
       <Nav>
-        <Link to="/plastique-biche">Plastique Biche</Link>
+        <Link to="/plastique-biche">
+          <Img
+            fixed={data.plastiqueCover.childImageSharp.fixed}
+            alt="link to plastique biche EP page"
+          />
+        </Link>
       </Nav>
       <Container>
-        <PauvreBicheContainer>
-          <Img alt="Pauvre Biche" fluid={data.title.childImageSharp.fluid} />
-        </PauvreBicheContainer>
         <Title>BICHE BOYS EP</Title>
         <CoverImage>
           <Img
@@ -160,7 +157,7 @@ const Home = () => {
             fluid={data.cover.childImageSharp.fluid}
           />
         </CoverImage>
-        <MusicLinks />
+        <MusicLinks album="bicheBoys" />
         <Video
           title="pauvre-biche-deso-clip"
           src="https://www.youtube.com/embed/jOPuDfCEauQ"
