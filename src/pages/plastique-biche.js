@@ -41,22 +41,13 @@ const Container = styled.div`
 const MainTitle = styled.h1`
   line-height: 1.5;
   color: #e5ffff;
-  font-weight: bolder;
+  font-weight: 900;
   text-align: center;
-  font-style: italic;
   margin: 20px 0;
   font-size: 4em;
   text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   @media (min-width: 320px) and (max-width: 500px) {
     font-size: 2em;
-  }
-`
-
-const SecondaryTitle = styled(MainTitle)`
-  font-style: normal;
-  font-size: 3em;
-  @media (min-width: 320px) and (max-width: 500px) {
-    font-size: 1.5em;
   }
 `
 
@@ -70,10 +61,18 @@ const Present = styled.p`
   }
 `
 
+const VideoContainer = styled.div`
+  width: 100%;
+  @media (min-width: 320px) and (max-width: 500px) {
+    width: calc(100% + 60px);
+  }
+`
+
 const Video = styled.iframe`
   position: relative;
   width: 560px;
   height: 315px;
+  margin: auto;
   @media (min-width: 320px) and (max-width: 500px) {
     width: 100%;
   }
@@ -89,7 +88,7 @@ const CommandLink = styled.a`
   text-decoration: none;
   text-align: center;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 900;
   &:hover {
     background-color: #ce0606;
     cursor: pointer;
@@ -138,7 +137,7 @@ const PlastiqueBichePage = () => {
             <Img alt="Pauvre Biche" fluid={data.title.childImageSharp.fluid} />
           </PauvreBicheContainer>
           <Present>présente le</Present>
-          <SecondaryTitle>Plastique Biche EP</SecondaryTitle>
+          <MainTitle>Plastique Biche EP</MainTitle>
           <CommandLink
             href="https://pauvrebiche.bandcamp.com/"
             alt="pauvre-biche-bandcamp"
@@ -146,12 +145,14 @@ const PlastiqueBichePage = () => {
             Acheter le CD-ROM édition limitée
           </CommandLink>
           <MusicLinks album="plastiqueBiche" />
-          <Video
-            title="pauvre-biche-deso-clip"
-            src="https://www.youtube.com/embed/4zFPg6aygd4"
-            frameBorder="0"
-            allowFullScreen
-          />
+          <VideoContainer>
+            <Video
+              title="pauvre-biche-deso-clip"
+              src="https://www.youtube.com/embed/4zFPg6aygd4"
+              frameBorder="0"
+              allowFullScreen
+            />
+          </VideoContainer>
           <Footer />
         </Container>
       </LandingPage>

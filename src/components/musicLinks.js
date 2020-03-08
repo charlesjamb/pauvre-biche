@@ -15,7 +15,7 @@ const LinksContainer = styled.div`
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   color: white;
   z-index: 2;
-  font-weight: bold;
+  font-weight: 900;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -34,7 +34,7 @@ const Available = styled.p`
   z-index: 2;
   font-size: 1em;
   color: black;
-  font-weight: bold;
+  font-weight: 900;
 `
 
 const Icon = styled.img`

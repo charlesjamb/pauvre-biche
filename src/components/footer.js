@@ -21,7 +21,7 @@ const Container = styled.footer`
     margin: 2rem;
     font-size: 1rem;
     transition: transform 150ms ease;
-    font-weight: bold;
+    font-weight: 900;
     :hover {
       transform: scale(1.1);
     }

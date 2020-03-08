@@ -32,6 +32,15 @@ const BackgroundVideo = styled.video`
   z-index: -1;
 `
 
+const VideoContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  @media (min-width: 320px) and (max-width: 500px) {
+    width: calc(100% + 60px);
+  }
+`
+
 const Video = styled.iframe`
   position: relative;
   z-index: 2;
@@ -45,13 +54,13 @@ const Video = styled.iframe`
 const Title = styled.h1`
   line-height: 1.5em;
   color: #e5ffff;
-  font-size: 8rem;
-  font-weight: bolder;
+  font-size: 6rem;
+  font-weight: 900;
   margin-bottom: 60px;
   text-align: center;
-
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   @media (min-width: 320px) and (max-width: 500px) {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 `
 
@@ -96,12 +105,14 @@ const Home = () => {
           />
         </CoverImage>
         <MusicLinks album="bicheBoys" />
-        <Video
-          title="pauvre-biche-deso-clip"
-          src="https://www.youtube.com/embed/jOPuDfCEauQ"
-          frameBorder="0"
-          allowFullScreen
-        />
+        <VideoContainer>
+          <Video
+            title="pauvre-biche-deso-clip"
+            src="https://www.youtube.com/embed/jOPuDfCEauQ"
+            frameBorder="0"
+            allowFullScreen
+          />
+        </VideoContainer>
         <Footer />
       </Container>
     </Layout>
