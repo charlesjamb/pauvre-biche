@@ -11,7 +11,9 @@ import background from "../images/background.jpg"
 import silhouetteArbres from "../images/silhouetteArbres.png"
 import MusicLinks from "../components/musicLinks"
 
-const LandingPage = styled.div`
+import { Container, Title, VideoContainer, Video } from "../styles/components"
+
+const Background = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -27,27 +29,11 @@ const LandingPage = styled.div`
   }
 `
 
-const Container = styled.div`
-  position: relative;
-  max-width: 1290px;
-  padding: 60px 30px;
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
-
-const MainTitle = styled.h1`
-  line-height: 1.5;
-  color: #e5ffff;
-  font-weight: 900;
-  text-align: center;
+const MainTitle = styled(Title)`
   margin: 20px 0;
-  font-size: 4em;
-  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  font-size: 4rem;
   @media (min-width: 320px) and (max-width: 500px) {
-    font-size: 2em;
+    font-size: 2rem;
   }
 `
 
@@ -58,23 +44,6 @@ const Present = styled.p`
   font-size: 1em;
   @media (min-width: 320px) and (max-width: 500px) {
     font-size: 1em;
-  }
-`
-
-const VideoContainer = styled.div`
-  width: 100%;
-  @media (min-width: 320px) and (max-width: 500px) {
-    width: calc(100% + 60px);
-  }
-`
-
-const Video = styled.iframe`
-  position: relative;
-  width: 560px;
-  height: 315px;
-  margin: auto;
-  @media (min-width: 320px) and (max-width: 500px) {
-    width: 100%;
   }
 `
 
@@ -117,20 +86,13 @@ const PlastiqueBichePage = () => {
           }
         }
       }
-      bicheBoys: file(relativePath: { eq: "biche-boys-cover.jpg" }) {
-        childImageSharp {
-          fixed(width: 80) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
     }
   `)
 
   return (
     <Layout>
       <SEO title="Plastique Biche" />
-      <LandingPage>
+      <Background>
         <Nav to="bicheBoys" />
         <Container>
           <PauvreBicheContainer>
@@ -155,7 +117,7 @@ const PlastiqueBichePage = () => {
           </VideoContainer>
           <Footer />
         </Container>
-      </LandingPage>
+      </Background>
     </Layout>
   )
 }

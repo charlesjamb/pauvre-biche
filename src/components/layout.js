@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
-import GlobalStyle from "./globalStyles"
+import GlobalStyle from "../styles/globalStyles"
 
 const Main = styled.main`
   margin: 0 auto;

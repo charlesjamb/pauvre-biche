@@ -11,18 +11,9 @@ import MusicLinks from "../components/musicLinks"
 import videoPlaceholder from "../images/video-placeholder.jpg"
 import background from "../videos/background.mp4"
 
-const Container = styled.div`
-  position: relative;
-  max-width: 1290px;
-  padding: 60px 30px;
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
+import { Container, Title, VideoContainer, Video } from "../styles/components"
 
-const BackgroundVideo = styled.video`
+const Background = styled.video`
   object-fit: cover;
   width: 100vw;
   height: 100vh;
@@ -30,38 +21,6 @@ const BackgroundVideo = styled.video`
   top: 0;
   left: 0;
   z-index: -1;
-`
-
-const VideoContainer = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  @media (min-width: 320px) and (max-width: 500px) {
-    width: calc(100% + 60px);
-  }
-`
-
-const Video = styled.iframe`
-  position: relative;
-  z-index: 2;
-  width: 560px;
-  height: 315px;
-  @media (min-width: 320px) and (max-width: 500px) {
-    width: 100%;
-  }
-`
-
-const Title = styled.h1`
-  line-height: 1.5em;
-  color: #e5ffff;
-  font-size: 6rem;
-  font-weight: 900;
-  margin-bottom: 60px;
-  text-align: center;
-  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  @media (min-width: 320px) and (max-width: 500px) {
-    font-size: 3rem;
-  }
 `
 
 const CoverImage = styled.div`
@@ -92,9 +51,9 @@ const Home = () => {
   return (
     <Layout>
       <SEO title="Biche Boys" />
-      <BackgroundVideo autoPlay muted loop poster={videoPlaceholder}>
+      <Background autoPlay muted loop poster={videoPlaceholder}>
         <source src={background} type="video/mp4" />
-      </BackgroundVideo>
+      </Background>
       <Nav to="plastiqueBiche" />
       <Container>
         <Title>BICHE BOYS EP</Title>
