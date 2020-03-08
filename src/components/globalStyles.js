@@ -1,17 +1,6 @@
 import { createGlobalStyle } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: 'Futura-Bold';
-    font-display: swap;
-    src: url('../font/Futura-Bold.woff2') format('woff2'),
-      url('../font/Futura-Bold.woff') format('woff'),
-      url('../font/Futura-Bold.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-  @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -38,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
     display: block;
   }
   body {
-    font-family: "Futura-Bold", "Anton", sans-serif;
+    font-family: "Nunito Sans", sans-serif;
     line-height: 1;
   }
   ol, ul {
