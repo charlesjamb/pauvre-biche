@@ -1,10 +1,11 @@
 import React from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
-import { Link } from "gatsby"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
+import Footer from "../components/footer"
+import Nav from "../components/nav"
 import SEO from "../components/seo"
 import MusicLinks from "../components/musicLinks"
 import videoPlaceholder from "../images/video-placeholder.jpg"
@@ -45,7 +46,7 @@ const Title = styled.h1`
   line-height: 1.5em;
   color: #e5ffff;
   font-size: 8rem;
-  font-weight: bold;
+  font-weight: bolder;
   margin-bottom: 60px;
   text-align: center;
 
@@ -66,55 +67,6 @@ const CoverImage = styled.div`
   }
 `
 
-const Nav = styled.nav`
-  padding: 30px 30px 0 0;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  box-sizing: border-box;
-
-  a {
-    color: #e5ffff;
-    cursor: pointer;
-    text-decoration: none;
-    line-height: 1.5rem;
-    font-size: 1rem;
-    transition: transform 150ms ease;
-
-    :hover {
-      transform: scale(1.1);
-      text-decoration: underline;
-    }
-  }
-`
-
-const Footer = styled.footer`
-  padding-top: 120px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-
-  @media (min-width: 320px) and (max-width: 500px) {
-    flex-direction: column;
-  }
-
-  a {
-    color: #e5ffff;
-    cursor: pointer;
-    text-decoration: none;
-    line-height: 1.5rem;
-    margin: 2rem;
-    font-size: 1rem;
-    transition: transform 150ms ease;
-
-    :hover {
-      transform: scale(1.1);
-    }
-  }
-`
-
 const Home = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -122,13 +74,6 @@ const Home = () => {
         childImageSharp {
           fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      plastiqueCover: file(relativePath: { eq: "plastique-biche-cover.jpg" }) {
-        childImageSharp {
-          fixed(width: 80) {
-            ...GatsbyImageSharpFixed
           }
         }
       }
@@ -141,14 +86,7 @@ const Home = () => {
       <BackgroundVideo autoPlay muted loop poster={videoPlaceholder}>
         <source src={background} type="video/mp4" />
       </BackgroundVideo>
-      <Nav>
-        <Link to="/plastique-biche">
-          <Img
-            fixed={data.plastiqueCover.childImageSharp.fixed}
-            alt="link to plastique biche EP page"
-          />
-        </Link>
-      </Nav>
+      <Nav to="plastiqueBiche" />
       <Container>
         <Title>BICHE BOYS EP</Title>
         <CoverImage>
@@ -164,13 +102,7 @@ const Home = () => {
           frameBorder="0"
           allowFullScreen
         />
-        <Footer>
-          <a href="https://www.facebook.com/pauvrebiche/">Facebook</a>
-          <a href="https://www.instagram.com/pauvrebiche/">Instagram</a>
-          <a href="https://www.youtube.com/channel/UCFwVjtYoo5wO_HmiC42RG0A">
-            Youtube
-          </a>
-        </Footer>
+        <Footer />
       </Container>
     </Layout>
   )

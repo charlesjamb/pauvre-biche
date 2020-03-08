@@ -1,10 +1,11 @@
 import React from "react"
 import Img from "gatsby-image"
-import { Link } from "gatsby"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
+import Footer from "../components/footer"
+import Nav from "../components/nav"
 import SEO from "../components/seo"
 import background from "../images/background.jpg"
 import silhouetteArbres from "../images/silhouetteArbres.png"
@@ -38,12 +39,11 @@ const Container = styled.div`
 `
 
 const MainTitle = styled.h1`
-  line-height: 0.9;
+  line-height: 1.5;
   color: #e5ffff;
-  font-weight: bold;
+  font-weight: bolder;
   text-align: center;
   font-style: italic;
-  z-index: 2;
   margin: 20px 0;
   font-size: 4em;
   text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -54,7 +54,6 @@ const MainTitle = styled.h1`
 
 const SecondaryTitle = styled(MainTitle)`
   font-style: normal;
-  z-index: 2;
   font-size: 3em;
   @media (min-width: 320px) and (max-width: 500px) {
     font-size: 1.5em;
@@ -65,7 +64,6 @@ const Present = styled.p`
   margin: 0;
   color: #e5ffff;
   font-family: "Cedarville Cursive", cursive;
-  z-index: 2;
   font-size: 1em;
   @media (min-width: 320px) and (max-width: 500px) {
     font-size: 1em;
@@ -74,7 +72,6 @@ const Present = styled.p`
 
 const Video = styled.iframe`
   position: relative;
-  z-index: 2;
   width: 560px;
   height: 315px;
   @media (min-width: 320px) and (max-width: 500px) {
@@ -91,8 +88,8 @@ const CommandLink = styled.a`
   position: relative;
   text-decoration: none;
   text-align: center;
-  z-index: 2;
   text-transform: uppercase;
+  font-weight: bold;
   &:hover {
     background-color: #ce0606;
     cursor: pointer;
@@ -100,56 +97,6 @@ const CommandLink = styled.a`
   &:active {
     box-shadow: none;
     top: 5px;
-  }
-`
-
-const Nav = styled.nav`
-  padding: 30px 30px 0 0;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  box-sizing: border-box;
-
-  a {
-    color: #e5ffff;
-    cursor: pointer;
-    text-decoration: none;
-    line-height: 1.5rem;
-    font-size: 1rem;
-    transition: transform 150ms ease;
-
-    :hover {
-      transform: scale(1.1);
-      text-decoration: underline;
-    }
-  }
-`
-
-const Footer = styled.footer`
-  padding-top: 120px;
-  padding-bottom: 60px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-
-  @media (min-width: 320px) and (max-width: 500px) {
-    flex-direction: column;
-  }
-
-  a {
-    color: #e5ffff;
-    cursor: pointer;
-    text-decoration: none;
-    line-height: 1.5rem;
-    margin: 2rem;
-    font-size: 1rem;
-    transition: transform 150ms ease;
-
-    :hover {
-      transform: scale(1.1);
-    }
   }
 `
 
@@ -185,14 +132,7 @@ const PlastiqueBichePage = () => {
     <Layout>
       <SEO title="Plastique Biche" />
       <LandingPage>
-        <Nav>
-          <Link to="/">
-            <Img
-              fixed={data.bicheBoys.childImageSharp.fixed}
-              alt="link to biche boys ep page"
-            />
-          </Link>
-        </Nav>
+        <Nav to="bicheBoys" />
         <Container>
           <PauvreBicheContainer>
             <Img alt="Pauvre Biche" fluid={data.title.childImageSharp.fluid} />
@@ -212,13 +152,7 @@ const PlastiqueBichePage = () => {
             frameBorder="0"
             allowFullScreen
           />
-          <Footer>
-            <a href="https://www.facebook.com/pauvrebiche/">Facebook</a>
-            <a href="https://www.instagram.com/pauvrebiche/">Instagram</a>
-            <a href="https://www.youtube.com/channel/UCFwVjtYoo5wO_HmiC42RG0A">
-              Youtube
-            </a>
-          </Footer>
+          <Footer />
         </Container>
       </LandingPage>
     </Layout>

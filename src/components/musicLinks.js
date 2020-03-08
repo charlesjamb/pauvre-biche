@@ -34,6 +34,7 @@ const Available = styled.p`
   z-index: 2;
   font-size: 1em;
   color: black;
+  font-weight: bold;
 `
 
 const Icon = styled.img`

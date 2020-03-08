@@ -30,8 +30,8 @@ module.exports = {
         name: `Pauvre Biche`,
         short_name: `pauvrebiche`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#FF7C2C`,
+        theme_color: `#FF7C2C`,
         display: `minimal-ui`,
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
