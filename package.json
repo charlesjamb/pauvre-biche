@@ -1,15 +1,15 @@
 {
   "name": "pauvre-biche",
   "private": true,
-  "description": "Pauvre Biche est un groupe de hip-hop / electronica composé de Florent Blin et Jérémy Gleize.",
+  "description": "",
   "version": "0.1.0",
   "author": "Charles Jambon <charles.jambon@gmail.com>",
   "dependencies": {
+    "@fontsource/nunito-sans": "^4.2.2",
     "babel-plugin-styled-components": "^1.10.7",
     "gatsby": "^2.18.12",
     "gatsby-image": "^2.2.34",
     "gatsby-plugin-manifest": "^2.2.44",
-    "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
     "gatsby-plugin-react-helmet": "^3.1.16",
     "gatsby-plugin-sharp": "^2.3.5",
     "gatsby-plugin-styled-components": "^3.1.18",
@@ -24,9 +24,6 @@
   "devDependencies": {
     "prettier": "^1.19.1"
   },
-  "keywords": [
-    "Pauvre Biche, Pauvre, Biche, rap, EP, pauve-biche, hip-hop, electronica"
-  ],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",

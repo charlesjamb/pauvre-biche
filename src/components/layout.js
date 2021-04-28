@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
+import "@fontsource/nunito-sans"
 
 import GlobalStyle from "../styles/globalStyles"
 
